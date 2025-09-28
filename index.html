@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم العلوم | البورتوفوليو التعليمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #00bcd4;
+            --accent-color: #ff4081;
+            --success-color: #4caf50;
+            --whatsapp-color: #25D366;
+            --text-color: #212121;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --glow: 0 0 15px rgba(0, 188, 212, 0.5);
+            --border-radius: 12px;
+        }
+
+        .dark-mode {
+            --primary-color: #303f9f;
+            --secondary-color: #00acc1;
+            --accent-color: #f50057;
+            --success-color: #388e3c;
+            --whatsapp-color: #128C7E;
+            --text-color: #e0e0e0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --glow: 0 0 15px rgba(0, 172, 193, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+
+        .btn-accent:hover {
+            background-color: #d81b60;
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+        }
+
+        .btn-success:hover {
+            background-color: #2e7d32;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        /* زر الواتساب العائم */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 70px;
+            height: 70px;
+            background-color: var(--whatsapp-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            animation: pulse-whatsapp 2s infinite;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        .whatsapp-float::after {
+            content: 'تواصل عبر واتساب';
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            pointer-events: none;
+        }
+
+        .whatsapp-float:hover::after {
+            opacity: 1;
+            bottom: 85px;
+        }
+
+        @keyframes pulse-whatsapp {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--card-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        .theme-toggle i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            box-shadow: var(--glow);
+            z-index: 2;
+            position: relative;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .social-btn:hover::before {
+            transform: translateY(0);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-btn:active {
+            transform: translateY(2px) scale(0.95);
+            transition: all 0.1s ease;
+        }
+
+        .facebook {
+            background: linear-gradient(135deg, #3b5998, #8b9dc3);
+        }
+
+        .instagram {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+        }
+
+        .youtube {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+        }
+
+        .whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .science-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .molecule, .atom, .flask {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 15s infinite linear;
+        }
+
+        .flask {
+            background-color: var(--accent-color);
+            border-radius: 50% 50% 40% 40%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px) rotate(90deg);
+            }
+            50% {
+                transform: translateY(0) translateX(20px) rotate(180deg);
+            }
+            75% {
+                transform: translateY(20px) translateX(10px) rotate(270deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(360deg);
+            }
+        }
+
+        .about {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-stats {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .subjects {
+            background-color: var(--bg-color);
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .subject-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .subject-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .subject-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .booking {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+        }
+
+        .resources {
+            background-color: var(--bg-color);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .contact-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .contact-social .social-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+                height: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .profile-img {
+                width: 250px;
+                height: 250px;
+                margin-top: 30px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 1.7rem;
+                bottom: 20px;
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/201234567890?text=مرحباً، أريد الاستفسار عن الدروس" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- زر تبديل الوضع الليلي -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-atom"></i>
+                     khaled<span> Mrs\ walaa</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">عن المدرس</a></li>
+                    <li><a href="#subjects">المواد الدراسية</a></li>
+                    <li><a href="#resources">المصادر التعليمية</a></li>
+                    <li><a href="#booking">حجز الدروس</a></li>
+                    <li><a href="#contact">التواصل</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم الهيرو -->
+    <section class="hero" id="home">
+        <div class="science-background" id="scienceBg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>اكتشف عجائب <span style="color: var(--secondary-color);">العلوم</span> معًا</h1>
+                <p>أنا الأستاذة ولاء خالد، معلمة العلوم للمرحلة الابتدائية والإعدادية و العلوم المتكاملة و الكيمياء للمرحلة الثانوية. هدفي هو جعل تعلم المواد رحلة ممتعة ومليئة بالاكتشافات المذهلة!</p>
+                <a href="#booking" class="btn">احجز درسك الأول</a>
+                
+                <!-- أزرار وسائل التواصل الاجتماعي -->
+                <div class="social-links">
+                    <a href="#" class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-btn youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/201234567890?text=مرحباً، أريد الاستفسار عن الدروس" class="social-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="walaa.jpg" alt="صورة المعلمة" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عن المدرس -->
+    <section id="about">
+        <div class="container">
+            <h2>عن المدرس</h2>
+            <div class="about">
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>مرحباً، أنا الأستاذ أحمد، حاصل على ماجستير في تدريس العلوم مع أكثر من 10 سنوات خبرة في تدريس المواد العلمية للطلاب في المرحلة الابتدائية والإعدادية.</p>
+                        <p>أؤمن بأن العلم ليس مجرد معلومات نحفظها، بل هو مغامرة شيقة نعيشها يومياً. في دروسي، أدمج التجارب العملية مع الشرح النظري لضمان فهم أعمق للمفاهيم العلمية.</p>
+                        <p>تهدف دروسي إلى تنمية الفضول العلمي لدى الطلاب وتشجيعهم على طرح الأسئلة واستكشاف العالم من حولهم.</p>
+                        <a href="https://wa.me/201234567890?text=مرحباً، أريد الاستفسار عن الدروس" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                        </a>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <i class="fas fa-user-graduate"></i>
+                            <h3>500+</h3>
+                            <p>طالب</p>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-award"></i>
+                            <h3>10+</h3>
+                            <p>سنوات خبرة</p>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-flask"></i>
+                            <h3>100+</h3>
+                            <p>تجربة علمية</p>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-smile"></i>
+                            <h3>98%</h3>
+                            <p>رضا أولياء الأمور</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المواد الدراسية -->
+    <section id="subjects" class="subjects">
+        <div class="container">
+            <h2>المواد الدراسية</h2>
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <i class="fas fa-atom"></i>
+                    <h3>الكيمياء</h3>
+                    <p>اكتشف عالم الجزيئات والتفاعلات الكيميائية المذهلة من خلال تجارب عملية شيقة.</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>علوم متكاملة </h3>
+                    <p>تخيلو لو جمعنا قوة الفيزياء مع اسرار الكيمياء مع حياة الاحياء... ساعتها هنفهم العالم حوالينا بطريقة جديدة و ممتعة </p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-magnet"></i>
+                    <h3>علوم عامة للمرحلة الاعدادية </h3>
+                    <p>تفتكرو ازاي العلم غير حياتنا من نار الحجر و الخشب الي رحلات للفضاء....!؟ يلا بينا نستكشف ده</p>
+                </div>
+                <!-- <div class="subject-card">
+                    <i class="fas fa-globe-africa"></i>
+                    <h3>علوم الأرض</h3>
+                    <p>تعرف على كوكبنا الرائع من طبقات الأرض إلى الظواهر الجوية المدهشة.</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المصادر التعليمية -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2>المصادر التعليمية</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-video"></i>
+                    <h3>فيديوهات تعليمية</h3>
+                    <p>مكتبة شاملة من الفيديوهات التوضيحية للتجارب والنظريات العلمية.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">استعرض الفيديوهات</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>ملخصات ومراجعات</h3>
+                    <p>ملخصات شاملة لكل المنهج مع أسئلة مراجعة واختبارات تدريبية.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">تحميل الملخصات</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>تجارب منزلية</h3>
+                    <p>دليل كامل للتجارب العلمية الآمنة التي يمكن تنفيذها في المنزل.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">اكتشف التجارب</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>أنشطة تفاعلية</h3>
+                    <p>ألعاب وأنشطة تفاعلية لتعزيز فهم المفاهيم العلمية بطريقة ممتعة.</p>
+                    <a href="#" class="btn" style="margin-top: 15px;">العب وتعلم</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم حجز الدروس -->
+    <section id="booking">
+        <div class="container">
+            <h2>حجز الدروس</h2>
+            <div class="booking">
+                <p>احجز درسك الآن وابدأ رحلة التعلم الممتعة! اختر الوقت المناسب لك وسنعمل معًا لتحقيق أهدافك التعليمية.</p>
+                
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="grade">الصف الدراسي</label>
+                        <select id="grade" required>
+                            <option value="">اختر الصف</option>
+                            <option value="primary-4">الصف الرابع الابتدائي</option>
+                            <option value="primary-5">الصف الخامس الابتدائي</option>
+                            <option value="primary-6">الصف السادس الابتدائي</option>
+                            <option value="prep-1">الصف الأول الإعدادي</option>
+                            <option value="prep-2">الصف الثاني الإعدادي</option>
+                            <option value="prep-3">الصف الثالث الإعدادي</option>
+                            <option value="sec-1">الصف الاول الثانوي </option>
+                            <option value="sec-2">الصف الثاني الثانوي</option>
+                            <!-- <option value="sec-3">الصف الثالث الثانوي</option> -->
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">المادة</label>
+                        <select id="subject" required>
+                            <option value="">اختر المادة</option>
+                            <option value="chemistry">الكيمياء</option>
+                            <option value="biology">العلوم المتكاملة </option>
+                            <option value="physics">العلوم العامة</option>
+                            <!-- <option value="earth-science">علوم الأرض</option>
+                            <option value="general">علوم عامة</option> -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">التاريخ المفضل</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">الوقت المفضل</label>
+                        <select id="time" required>
+                            <option value="">اختر الوقت</option>
+                            <option value="morning">الصباح (9 ص - 12 م)</option>
+                            <option value="afternoon">بعد الظهر (2 م - 5 م)</option>
+                            <option value="evening">المساء (6 م - 9 م)</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="notes">ملاحظات إضافية (اختياري)</label>
+                        <textarea id="notes" rows="4"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-success" style="width: 100%;">احجز الدرس الآن</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact">
+                <h2>تواصل معي</h2>
+                <p>يمكنك متابعتي على منصات التواصل الاجتماعي للاستفادة من محتوى تعليمي إضافي ومشاهدة التجارب العلمية المذهلة!</p>
+                
+                <div class="contact-social">
+                     <a href="https://www.facebook.com/profile.php?id=100045811781356" class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/wlak56339/" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@%D9%85%D8%B3_%D9%88%D9%84%D8%A7%D8%A1%D8%AE%D8%A7%D9%84%D8%AF" class="social-btn youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/201101328193?text=مرحباً، أريد الاستفسار عن الدروس" class="social-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-atom"></i> عالم العلوم
+                </div>
+                <div class="footer-links">
+                    <a href="#home">الرئيسية</a>
+                    <a href="#about">عن المدرس</a>
+                    <a href="#contact">التواصل</a>
+                </div>
+                <div>
+                    <p>جميع الحقوق محفوظة &copy; 2023 عالم العلوم</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تبديل الوضع الليلي
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const themeIcon = themeToggle.querySelector('i');
+
+// اجعل الوضع المظمن هو الافتراضي
+body.classList.add('dark-mode');
+themeIcon.classList.remove('fa-moon');
+themeIcon.classList.add('fa-sun');
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+});
+
+
+        // إنشاء الخلفية التفاعلية
+        const scienceBg = document.getElementById('scienceBg');
+        
+        function createScienceElement(type) {
+            const element = document.createElement('div');
+            element.classList.add(type);
+            
+            // تحديد المواقع عشوائياً
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const size = Math.random() * 30 + 20;
+            
+            element.style.left = `${left}%`;
+            element.style.top = `${top}%`;
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            
+            // تحديد مدة الحركة عشوائياً
+            const duration = Math.random() * 20 + 10;
+            element.style.animationDuration = `${duration}s`;
+            
+            // تحديد اللون عشوائياً
+            const colors = ['var(--secondary-color)', 'var(--accent-color)', 'var(--primary-color)'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            element.style.backgroundColor = randomColor;
+            
+            scienceBg.appendChild(element);
+        }
+        
+        // إنشاء العناصر العلمية
+        for (let i = 0; i < 10; i++) {
+            createScienceElement('molecule');
+        }
+        
+        for (let i = 0; i < 8; i++) {
+            createScienceElement('atom');
+        }
+        
+        for (let i = 0; i < 5; i++) {
+            createScienceElement('flask');
+        }
+
+        // تأثيرات إضافية لأزرار التواصل الاجتماعي
+        const socialBtns = document.querySelectorAll('.social-btn');
+        
+        socialBtns.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.15)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            btn.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(2px) scale(0.9)';
+            });
+            
+            btn.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-8px) scale(1.15)';
+            });
+        });
+
+        // إرسال نموذج الحجز
+        const bookingForm = document.querySelector('.booking-form');
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('تم استلام طلب الحجز بنجاح! سنتواصل معك خلال 24 ساعة لتأكيد الموعد.');
+            this.reset();
+        });
+
+        // إضافة تأثير خاص لزر الواتساب في الفوتر
+        const whatsappBtn = document.querySelector('.btn-whatsapp');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            whatsappBtn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        }
+    </script>
+</body>
+</html>
